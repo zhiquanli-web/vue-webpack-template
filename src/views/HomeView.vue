@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">home</div>
+  <icon-sy-logo style="width: 18px; height: 18px" />
 </template>
 
 <script setup lang="ts"></script>
