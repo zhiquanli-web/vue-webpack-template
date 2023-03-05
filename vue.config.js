@@ -6,6 +6,8 @@ const Icons = require('unplugin-icons/webpack');
 const IconsResolver = require('unplugin-icons/resolver');
 const { FileSystemIconLoader } = require('unplugin-icons/loaders');
 
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
+
 module.exports = defineConfig({
   transpileDependencies: true,
   productionSourceMap: process.env.NODE_ENV !== 'production',
@@ -19,14 +21,17 @@ module.exports = defineConfig({
           enabled: true,
           filepath: './.eslintrc-auto-import.json',
         },
+        resolvers: [ElementPlusResolver()],
       }),
       AutoComponent({
         dts: false,
         resolvers: [
           IconsResolver({
             componentPrefix: 'icon',
+            enabledCollections: ['ep'],
             customCollections: ['sy'],
           }),
+          ElementPlusResolver(),
         ],
       }),
       Icons({
@@ -34,7 +39,6 @@ module.exports = defineConfig({
         autoInstall: true,
         customCollections: {
           sy: FileSystemIconLoader('src/assets/svgs', (svg) => {
-            console.log('svg', svg);
             return svg.replace(/^<svg /, '<svg fill="currentColor" ');
           }),
         },
