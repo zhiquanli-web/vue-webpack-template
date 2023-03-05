@@ -34,7 +34,6 @@ module.exports = defineConfig({
         autoInstall: true,
         customCollections: {
           sy: FileSystemIconLoader('src/assets/svgs', (svg) => {
-            console.log('svg', svg);
             return svg.replace(/^<svg /, '<svg fill="currentColor" ');
           }),
         },
