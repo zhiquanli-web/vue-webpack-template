@@ -8,8 +8,10 @@
 </template>
 
 <script setup lang="ts">
+import { useMessage } from '@/hooks';
 import { useStore } from '@/store';
-
+const { success } = useMessage();
+success('这是一条成功的消息');
 const { user } = useStore();
 </script>
 
