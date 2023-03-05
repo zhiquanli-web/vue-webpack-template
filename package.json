@@ -9,6 +9,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vueuse/core": "^9.13.0",
     "core-js": "^3.8.3",
     "normalize.css": "^8.0.1",
     "pinia": "^2.0.32",

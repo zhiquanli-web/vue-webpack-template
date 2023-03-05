@@ -7,6 +7,7 @@
 
 <script setup lang="ts">
 import { useStore } from '@/store';
+
 const { user } = useStore();
 </script>
 
