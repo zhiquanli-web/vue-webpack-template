@@ -41,4 +41,11 @@ module.exports = defineConfig({
       }),
     ],
   },
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `@use "@/styles/mixins.scss" as *;`,
+      },
+    },
+  },
 });
