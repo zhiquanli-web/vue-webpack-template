@@ -1,7 +1,7 @@
 import Fetch from '@/servies/fetch';
 import localCache from '@/utils/localCache';
 
-const useMyFeatch = new Fetch({
+export const useMyFeatch = new Fetch({
   baseUrl: 'http://localhost:8080/',
   options: {
     beforeFetch({ options, cancel }) {
@@ -24,4 +24,15 @@ const useMyFeatch = new Fetch({
   },
 });
 
-export { useMyFeatch };
+export function useHandleApiRes(promise: PromiseLike<any>) {
+  return promise.then((res) => {
+    const { isFinished, data } = res;
+    const { code, message, data: resData } = unref(data);
+    return {
+      isFinished,
+      code,
+      message,
+      data: resData,
+    };
+  });
+}
