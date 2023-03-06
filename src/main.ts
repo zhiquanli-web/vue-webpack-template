@@ -1,5 +1,5 @@
 import { createPinia } from 'pinia';
-import router from './router';
+import router from './permission';
 
 import 'normalize.css';
 import './styles/index.scss';

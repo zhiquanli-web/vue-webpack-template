@@ -1,5 +1,5 @@
 import Fetch from '@/servies/fetch';
-import localCache from '@/utils/localCache';
+import { localCache } from '@/utils/localCache';
 
 export const useMyFeatch = new Fetch({
   baseUrl: 'http://localhost:8080/',
