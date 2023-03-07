@@ -2,7 +2,7 @@ import Fetch from '@/servies/fetch';
 import localCache from '@/utils/localCache';
 
 export const useMyFeatch = new Fetch({
-  baseUrl: 'http://localhost:8080/',
+  baseUrl: process.env.VUE_APP_BASE_URL,
   options: {
     beforeFetch({ options, cancel }) {
       const token = localCache.getCache('token');
@@ -26,13 +26,18 @@ export const useMyFeatch = new Fetch({
 
 export function useHandleApiRes(promise: PromiseLike<any>) {
   return promise.then((res) => {
-    const { isFinished, data } = res;
-    const { code, message, data: resData } = unref(data);
+    const { isFinished, data, abort, aborted, canAbort, statusCode, execute } = res;
+    const { code, message, data: resData } = unref(data) || {};
     return {
       isFinished,
       code,
       message,
       data: resData,
+      abort,
+      aborted,
+      canAbort,
+      statusCode,
+      execute,
     };
   });
 }

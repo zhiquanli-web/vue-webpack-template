@@ -22,7 +22,10 @@ class Fetch {
     });
   }
   get({ url, params = {} }: IFeatchParams, featOptions: UseFetchOptions = {}) {
-    return this.instances(`${url}${objectToSearch(params)}`, featOptions).json();
+    return this.instances(
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      featOptions
+    ).json();
   }
   post({ url, data }: IFeatchParams, featOptions: UseFetchOptions = {}) {
     return this.instances(url, featOptions).post(data);

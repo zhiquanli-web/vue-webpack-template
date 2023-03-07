@@ -48,8 +48,14 @@ module.exports = defineConfig({
     },
   },
   devServer: {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '',
+        },
+      },
     },
   },
 });
