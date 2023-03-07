@@ -14,6 +14,9 @@
     <el-button type="success" @click="switchColor">切换主题</el-button>
     <br />
     <el-button type="primary" @click="handleLogout">登出</el-button>
+    <span>{{ $filters.dateFormat(Date.now()) }}</span>
+    <br />
+    <input type="text" v-focus placeholder="指令测试" />
   </div>
 </template>
 
