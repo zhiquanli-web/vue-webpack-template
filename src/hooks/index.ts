@@ -1,2 +1,3 @@
 export * from './useMyFetch';
-export * from './useHandleApiRes';
+export * from './useMyFetch';
+export * from './useSwitchTheme';
