@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { useSwitchTheme } from '@/hooks/useSwitchThene';
+import { useSwitchTheme } from '@/hooks';
 import { useStore } from '@/store';
 
 const { user } = useStore();
