@@ -28,16 +28,16 @@ class Fetch {
     ).json();
   }
   post({ url, data }: IFeatchParams, featOptions: UseFetchOptions = {}) {
-    return this.instances(url, featOptions).post(data);
+    return this.instances(url, featOptions).post(data).json();
   }
   put({ url, data }: IFeatchParams, featOptions: UseFetchOptions = {}) {
-    return this.instances(url, featOptions).put(data);
+    return this.instances(url, featOptions).put(data).json();
   }
   patch({ url, data }: IFeatchParams, featOptions: UseFetchOptions = {}) {
-    return this.instances(url, featOptions).patch(data);
+    return this.instances(url, featOptions).patch(data).json();
   }
   delete({ url }: IFeatchParams, featOptions: UseFetchOptions = {}) {
-    return this.instances(url, featOptions).delete();
+    return this.instances(url, featOptions).delete().json();
   }
 }
 
