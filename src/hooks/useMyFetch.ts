@@ -15,8 +15,13 @@ export const useMyFeatch = new Fetch({
       };
       return { options };
     },
+    afterFetch(ctx) {
+      // 这里做统一错误处理
+      // const { code, message } = ctx.data;
+      return ctx;
+    },
     onFetchError(ctx) {
-      // 这里可以做错误处理
+      // 错误请求
       console.log('errorCTX', ctx);
       return ctx;
     },

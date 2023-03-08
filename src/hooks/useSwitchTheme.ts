@@ -14,7 +14,11 @@ const elementCssVars: TCssVarsRecord = {
   '--el-color-primary': '#409eff',
 };
 
-export function useSwitchTheme(el: HTMLElement | Ref<any>, cssVar: TCssVarsRecord) {
+export function useSwitchTheme(
+  el: HTMLElement | Ref<any>,
+  cssVar: TCssVarsRecord,
+  defaultThemeCssVar: TCssVarsRecord = elementCssVars
+) {
   const colors: Record<TCssVar | string, any> = {};
   Object.keys(cssVar).forEach((item) => {
     colors[item as TCssVar] = useCssVar(item, el);
@@ -22,9 +26,9 @@ export function useSwitchTheme(el: HTMLElement | Ref<any>, cssVar: TCssVarsRecor
   const switchColor = () => {
     Object.keys(cssVar).forEach((item) => {
       colors[item as TCssVar].value =
-        colors[item as TCssVar].value === elementCssVars[item as TCssVar]
+        colors[item as TCssVar].value === defaultThemeCssVar[item as TCssVar]
           ? cssVar[item as TCssVar]
-          : elementCssVars[item as TCssVar];
+          : defaultThemeCssVar[item as TCssVar];
     });
   };
   return {

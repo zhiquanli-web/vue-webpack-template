@@ -15,10 +15,11 @@ module.exports = defineConfig({
   configureWebpack: {
     plugins: [
       AutoImport({
-        dts: './typing/auto.import.d.ts',
+        // dts: './typing/auto.import.d.ts',
+        dts: false,
         imports: ['vue', 'vue-router'],
         eslintrc: {
-          enabled: true,
+          enabled: false,
           filepath: './.eslintrc-auto-import.json',
         },
         resolvers: [ElementPlusResolver()],
